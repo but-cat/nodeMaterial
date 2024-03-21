@@ -1,0 +1,33 @@
+<node type="node">
+	<name>向量节点</name>
+	<type>变量</type>
+	<label>#math #function #add</label>
+	<params>
+		<data1 type="float" default="1.0" name="x"></data1>
+		<data2 type="float" default="1.0" name="y"></data2>
+	</params>
+
+	<code return="vec2">
+		return vec2(data1, data2);
+	</code>
+
+
+	<doc>
+		# 向量节点
+
+		返回一个二维向量
+
+		可选二个float参数 x, y
+
+		## 参数
+
+		- data1: float 定义向量的x值
+		- data2: float 定义向量的y值
+
+		## 返回值
+
+		- vec2
+	</doc>
+
+</node>
+ 

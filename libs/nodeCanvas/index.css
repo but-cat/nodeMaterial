@@ -1,0 +1,128 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.node {
+	position: absolute;
+	/* width: 160px;
+	height: 60px; */
+	border-radius: 5px;
+	background: #1e1e1e;
+	border: 1px solid #434343;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	cursor: default;
+	z-index: 1;
+}
+.node__content {
+	padding: 5px 20px;
+	position: relative;
+	flex: 1 0 0;
+	display: flex;
+	width: 100%;
+	min-height: 60px;
+}
+.node__content:before {
+	position: absolute;
+	top: auto;
+	left: 0;
+	bottom: 0;
+	content: '';
+	display: block;
+	height: 30px;
+	width: 100%;
+	background-image: linear-gradient(to top, #1e1e1e, rgba(30, 30, 30, 0));
+	z-index: 2;
+}
+.node__holder {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.node__answer {
+	position: relative;
+	padding: 10px 20px;
+	width: 100%;
+	border-top: 1px solid #434343;
+}
+.node.ui-selected {
+	border-color: yellow;
+}
+.node.ui-selecting {
+	border-color: red;
+}
+.node1 {
+	top: 100px;
+	left: 100px;
+}
+.node4 {
+	top: 240px;
+	left: 700px;
+	min-height: 200px;
+	min-width: 260px;
+}
+.node__in,
+.node__out {
+	position: absolute;
+	width: 16px;
+	z-index: 100;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+}
+.node__in:hover,
+.node__out:hover {
+	transform: scale(1.2);
+}
+.node__in {
+	left: -8px;
+}
+.node__out {
+	right: -8px;
+}
+point-out,
+point-in {
+	width: 16px;
+	height: 16px;
+	margin: 1px 0;
+	border-radius: 100%;
+	background: #1e1e1e;
+	border: 1px solid #434343;
+	position: relative;
+	z-index: 100;
+}
+point-out {
+	background: #f77edd;
+}
+point-in {
+	background: #bef77e;
+}
+.connect {
+	stroke-width: 4px;
+	fill: transparent;
+	stroke: #5ef11a;
+}
+
+
+node-container {
+	/* position: relative;
+	left: 0;
+	top: 0; */
+
+	width: 100%;
+	height: 100%;
+	background-color: rgba(127, 255, 212, 0.3);
+	overflow: hidden;
+}

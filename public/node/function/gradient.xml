@@ -1,0 +1,41 @@
+<node type="node">
+    <name>纹理渐变</name>
+    <type>计算</type>
+    <label>#math #function #add</label>
+    <params>
+        <time type="float" default="1.2" name="时间"></time>
+        <uv type="vec2" default="vec2(0.5,0.5)" name="纹理坐标"></uv>
+    </params>
+
+    <code return="vec3">
+        vec3 col = 0.5 + 0.5 * cos( time + uv.xyx + vec3(0,2,4) );
+        return col;
+    </code>
+
+
+    <doc>
+        # 纹理渐变
+
+        ## 参数
+
+        - data1: float
+        - data2: float
+
+        ## 返回值
+
+        - float
+
+        ## 例子
+
+        ```json
+        {
+            "title": {
+                "data1": 10,
+                "data2": 10
+            }
+        }
+        ```
+    </doc>
+
+</node>
+ 

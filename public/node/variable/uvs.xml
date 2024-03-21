@@ -1,0 +1,42 @@
+<node type="start-node">
+	<name>屏幕坐标</name>
+	<type>变量</type>
+	<label>#math #function #add</label>
+	<params>
+		<!-- <data1 type="float" default="1" name="x"></data1>
+		<data2 type="float" default="1" name="y"></data2> -->
+	</params>
+
+	<code return="vec2">
+		vec2 uv = gl_FragCoord.xy / iResolution.xy;
+		uv.x *= iResolution.x / iResolution.y;
+		return uv;
+	</code>
+
+
+	<doc>
+		# 加法节点
+
+		## 参数
+
+		- data1: float
+		- data2: float
+
+		## 返回值
+
+		- float
+
+		## 例子
+
+		```json
+		{
+			"title": {
+				"data1": 10,
+				"data2": 10
+			}
+		}
+		```
+	</doc>
+
+</node>
+ 

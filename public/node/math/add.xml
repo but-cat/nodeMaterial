@@ -1,0 +1,48 @@
+<node type="node">
+    <name>加法节点</name>
+    <type>算术</type>
+    <label>#math #function #add</label>
+    <params>
+        <data1 type="float" default="10" name="参数1"></data1>
+        <data2 type="float" default="10" name="参数2"></data2>
+    </params>
+
+    <code return="float">
+        vec3 light = vec3( 0.5, 0.2, 1.0 );
+        light = normalize( light );
+
+        float dProd = dot( vNormal, light ) * 0.5 + 0.5;
+
+        vec4 tcolor = texture2D( colorTexture, vUv );
+        vec4 gray = vec4( vec3( tcolor.r * 0.3 + tcolor.g * 0.59 + tcolor.b * 0.11 ), 1.0 );
+
+        gl_FragColor = gray * vec4( vec3( dProd ) * vec3( color ), 1.0 );
+    </code>
+
+
+    <doc>
+        # 加法节点
+
+        ## 参数
+
+        - data1: float
+        - data2: float
+
+        ## 返回值
+
+        - float
+
+        ## 例子
+
+        ```json
+        {
+            "title": {
+                "data1": 10,
+                "data2": 10
+            }
+        }
+        ```
+    </doc>
+
+</node>
+ 

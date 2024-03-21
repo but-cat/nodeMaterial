@@ -1,0 +1,27 @@
+
+<% NodeList.forEach(({ codeTemplate }) => { %>
+<%- codeTemplate.type %> func_<%- codeTemplate.uuid %>(<%- codeTemplate.params.map(item => `${item.type} ${item.name}`).join() %>) {
+	<%- codeTemplate.code %>
+}
+<% }); %>
+
+
+
+
+<%- endNode.outputType %> nodeFunction() {
+<% ConnectedList.forEach(([{ codeTemplate, type }, inputList], index) => { %>
+
+<% if (type == 'end-node') { %>
+	return func_<%- codeTemplate.uuid %>(<%- inputList.map((item, index) => `var_${item}`).join() %>);
+<% } else { %>
+	<%- codeTemplate.type %> var_<%- codeTemplate.uuid %> = func_<%- codeTemplate.uuid %>(<%- inputList.map((item, index) => `var_${item}`).join() %>);
+<% } %>
+
+<% }); %>
+}
+
+
+void main() {
+	vec3 col = nodeFunction();
+    fragColor = vec4(col,1.0);
+}

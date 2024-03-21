@@ -1,0 +1,30 @@
+precision mediump float;
+uniform float iTime;
+uniform vec2 iResolution;
+
+<% NodeList.forEach(({ codeTemplate }) => { %>
+<%- codeTemplate.type %> func_<%- codeTemplate.uuid %>(<%- codeTemplate.params.map(item => `${item.type} ${item.name}`).join() %>) {
+	<%- codeTemplate.code %>
+}
+<% }); %>
+
+
+
+
+<%- endNode.outputType %> nodeFunction() {
+<% ConnectedList.forEach(([{ codeTemplate, type, input }, inputList], index) => { %>
+
+<% if (type == 'end-node') { %>
+	return func_<%- codeTemplate.uuid %>(<%- inputList.map((item, index) => item ? `var_${item}` : input[index].default).join() %>);
+<% } else { %>
+	<%- codeTemplate.type %> var_<%- codeTemplate.uuid %> = func_<%- codeTemplate.uuid %>(<%- inputList.map((item, index) => item ? `var_${item}` : input[index].default).join() %>);
+<% } %>
+
+<% }); %>
+}
+
+
+void main() {
+	vec3 col = nodeFunction();
+    gl_FragColor = vec4(col,1.0);
+}

@@ -1,0 +1,39 @@
+<node type="node">
+    <name>乘法节点</name>
+    <type>算术</type>
+    <label>#math #function #add</label>
+    <params>
+        <data1 type="vec2" default="vec2(0,0)" name="参数1"></data1>
+        <data2 type="vec2" default="vec2(0,0)" name="参数2"></data2>
+    </params>
+
+    <code return="vec2">
+        return data1 * data2;
+    </code>
+
+
+    <doc>
+        # 加法节点
+
+        ## 参数
+
+        - data1: float
+        - data2: float
+
+        ## 返回值
+
+        - float
+
+        ## 例子
+
+        ```json
+        {
+            "title": {
+                "data1": 10,
+                "data2": 10
+            }
+        }
+        ```
+    </doc>
+
+</node>

@@ -1,0 +1,40 @@
+<node type="end-node">
+    <name>输出颜色</name>
+    <type>输出</type>
+    <label>#math #export #add</label>
+    <params>
+        <data1 type="vec3" input-type="color" default="vec3(0.1, 0.6, 0.9)" name="输出颜色"></data1>
+        <!-- <data2 type="float" default="10"></data2> -->
+    </params>
+
+    <code return="vec3">
+        return data1;
+    </code>
+
+
+    <doc>
+        # 输出
+
+        ## 参数
+
+        - data1: float
+        - data2: float
+
+        ## 返回值
+
+        - float
+
+        ## 例子
+
+        ```json
+        {
+            "title": {
+                "data1": 10,
+                "data2": 10
+            }
+        }
+        ```
+    </doc>
+
+</node>
+ 

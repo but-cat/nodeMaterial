@@ -1,0 +1,44 @@
+<node type="node">
+    <name>圆</name>
+    <type>图形</type>
+    <label>#math #function #add</label>
+    <params>
+        <radius type="float" default="0.5" name="半径"></radius>
+        <position type="vec2" default="vec2(0.5,0.5)" name="坐标"></position>
+    </params>
+
+    <code return="vec3">
+		vec2 start = gl_FragCoord.xy / iResolution.xy;
+        start.x *= iResolution.x / iResolution.y;
+        vec2 dist = start - position;
+		float color = 1.0 - smoothstep( radius - (radius*0.01),  radius + (radius * 0.01),  dot(dist, dist) * 4.0);
+        return vec3(color);
+    </code>
+
+
+    <doc>
+        # 纹理渐变
+
+        ## 参数
+
+        - data1: float
+        - data2: float
+
+        ## 返回值
+
+        - float
+
+        ## 例子
+
+        ```json
+        {
+            "title": {
+                "data1": 10,
+                "data2": 10
+            }
+        }
+        ```
+    </doc>
+
+</node>
+ 
