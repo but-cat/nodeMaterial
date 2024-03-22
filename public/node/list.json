@@ -1,0 +1,80 @@
+[
+	{
+		"name": "add",
+		"type": "Math",
+		"url": "http://localhost:3900/node/math/add.xml"
+	},
+	{
+		"name": "numberRide",
+		"type": "Math",
+		"url": "http://localhost:3900/node/math/numberRide.xml"
+	},
+
+	
+
+	{
+		"name": "addVec2",
+		"type": "Math",
+		"url": "http://localhost:3900/node/math/addVec2.xml"
+	},
+
+	{
+		"name": "rideVec2",
+		"type": "Math",
+		"url": "http://localhost:3900/node/math/rideVec2.xml"
+	},
+	{
+		"name": "rideVec3",
+		"type": "Math",
+		"url": "http://localhost:3900/node/math/rideVec3.xml"
+	},
+
+    {
+		"name": "number",
+		"type": "variable",
+		"url": "http://localhost:3900/node/variable/number.xml"
+	},
+	{
+		"name": "time",
+		"type": "variable",
+		"url": "http://localhost:3900/node/variable/time.xml"
+	},
+	{
+		"name": "uvs",
+		"type": "variable",
+		"url": "http://localhost:3900/node/variable/uvs.xml"
+	},
+    {
+		"name": "vec2",
+		"type": "variable",
+		"url": "http://localhost:3900/node/variable/vec2.xml"
+	},
+    {
+		"name": "vec3",
+		"type": "variable",
+		"url": "http://localhost:3900/node/variable/vec3.xml"
+	},
+    {
+		"name": "vec4",
+		"type": "variable",
+		"url": "http://localhost:3900/node/variable/vec4.xml"
+	},
+
+	{
+		"name": "gradient",
+		"type": "function",
+		"url": "http://localhost:3900/node/function/gradient.xml"
+	},
+	{
+		"name": "circle",
+		"type": "function",
+		"url": "http://localhost:3900/node/function/circle.xml"
+	},
+
+
+	{
+		"name": "color",
+		"type": "export",
+		"url": "http://localhost:3900/node/export/color.xml"
+	}
+]

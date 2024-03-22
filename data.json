@@ -1,0 +1,84 @@
+{
+	"nodes": [
+		{
+			"name": "数值 - float",
+			"refCount": 0,
+			"refIndex": 0,
+			"uuid": "d5bb89c1_a9e5_4fc3_a94e_f7eccdf09505",
+			"funName": "f194586a5291",
+			"x": 872,
+			"y": 212,
+			"type": "start-node",
+			"disabled": false,
+			"outputType": "float",
+			"input": [
+				{ "uuid": "5214635f_e97a_4b5c_8a51_866bb1de6b21", "name": "data1", "type": "float", "title": "未命名", "default": "10", "value": 10 },
+				{ "uuid": "a98e68c1_d171_498c_99e4_6d63811f3d8a", "name": "data2", "type": "float", "title": "未命名", "default": "10", "value": 10 }
+			],
+			"code": "\n        return data1 + data2;\n    ",
+			"functionName": ""
+		},
+		{
+			"name": "加法节点",
+			"refCount": 0,
+			"refIndex": 0,
+			"uuid": "bcd6d6a1_ef4a_4e4a_a3c3_41bc01aa3eac",
+			"funName": "1ed54668def1",
+			"x": 598,
+			"y": 469,
+			"type": "node",
+			"disabled": false,
+			"outputType": "float",
+			"input": [
+				{ "uuid": "9f9027e3_57dd_449b_a38c_f3d747811fa8", "name": "data1", "type": "float", "title": "参数1", "default": "10", "value": 10 },
+				{ "uuid": "5d03b648_0bd1_44fc_b121_9a23681a3be9", "name": "data2", "type": "float", "title": "参数2", "default": "10", "value": 10 }
+			],
+			"code": "\n        vec3 light = vec3( 0.5, 0.2, 1.0 );\n        light = normalize( light );\n\n        float dProd = dot( vNormal, light ) * 0.5 + 0.5;\n\n        vec4 tcolor = texture2D( colorTexture, vUv );\n        vec4 gray = vec4( vec3( tcolor.r * 0.3 + tcolor.g * 0.59 + tcolor.b * 0.11 ), 1.0 );\n\n        gl_FragColor = gray * vec4( vec3( dProd ) * vec3( color ), 1.0 );\n    ",
+			"functionName": ""
+		},
+		{
+			"name": "向量节点",
+			"refCount": 0,
+			"refIndex": 0,
+			"uuid": "c44032a1_1387_42f6_9219_5820e3f734b6",
+			"funName": "d70f11b42849",
+			"x": 1125,
+			"y": 395,
+			"type": "start-node",
+			"disabled": false,
+			"outputType": "vec2",
+			"input": [
+				{ "uuid": "b9cefa57_7a0b_4f46_81f6_d94235211db0", "name": "data1", "type": "float", "title": "x", "default": "1", "value": 1 },
+				{ "uuid": "ab52d5db_9cd8_4a13_b19e_f9c057dd0617", "name": "data2", "type": "float", "title": "y", "default": "1", "value": 1 }
+			],
+			"code": "\n        return data1 + data2;\n    ",
+			"functionName": ""
+		},
+		{ "name": "输出 - float", "refCount": 0, "refIndex": 0, "uuid": "f769ecad_60b0_4cbc_bd3b_fdd186bbb3e5", "funName": "ba3ab31944ce", "x": 1029, "y": 239, "type": "end-node", "disabled": false, "outputType": "float", "input": [{ "uuid": "733b94e6_5c71_465e_9968_37d0dcd1ce81", "name": "data1", "type": "float", "title": "输出数字", "default": "10", "value": 10 }], "code": "\n        return data1;\n    ", "functionName": "" },
+		{
+			"name": "加法节点",
+			"refCount": 0,
+			"refIndex": 0,
+			"uuid": "69f7280f_5493_495b_9092_1e9aa4252613",
+			"funName": "d4c528dce4be",
+			"x": 196,
+			"y": 490,
+			"type": "node",
+			"disabled": false,
+			"outputType": "float",
+			"input": [
+				{ "uuid": "84d5f8fa_3e74_469f_bb5b_e96c12603b29", "name": "data1", "type": "float", "title": "参数1", "default": "10", "value": 10 },
+				{ "uuid": "90c6a88b_046e_4716_8b0d_65780e9e980a", "name": "data2", "type": "vec2", "title": "参数2", "default": "10", "value": 10 }
+			],
+			"code": "\n        return data1 + data2;\n    ",
+			"functionName": ""
+		}
+	],
+	"connected": [
+		["9f9027e3_57dd_449b_a38c_f3d747811fa8", "d5bb89c1_a9e5_4fc3_a94e_f7eccdf09505"],
+		["733b94e6_5c71_465e_9968_37d0dcd1ce81", "bcd6d6a1_ef4a_4e4a_a3c3_41bc01aa3eac"],
+		["5d03b648_0bd1_44fc_b121_9a23681a3be9", "69f7280f_5493_495b_9092_1e9aa4252613"],
+		["90c6a88b_046e_4716_8b0d_65780e9e980a", "c44032a1_1387_42f6_9219_5820e3f734b6"],
+		["84d5f8fa_3e74_469f_bb5b_e96c12603b29", "d5bb89c1_a9e5_4fc3_a94e_f7eccdf09505"]
+	]
+}

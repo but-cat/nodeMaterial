@@ -1,5 +1,5 @@
 <template>
-	<node-block :position="`${node!.x},${node!.y}`" :id="`block-${node.uuid}`" @click="emitActiveNode" @connected-down="emit('down', $event)" @connected-up="emit('up')" @connected-update="positionUpdate" :key="`end-${node.uuid}`" :class="isActive ? ['ring-2', 'ring-primary-300'] : []" ref="nodeBlock" class="end-node w-64 bg-white flex flex-col rounded-md dark:bg-gray-800 shadow-lg">
+	<node-block :position="`${node!.x},${node!.y}`" :id="`block-${node.uuid}`" @click="emitActiveNode" @connected-down="emit('down', $event)" @connected-up="emit('up')" @connected-update="positionUpdate" :key="`end-${node.uuid}`" :class="isActive ? ['ring-2', 'ring-primary-300'] : []" ref="nodeBlock" class="end-node w-64 bg-white flex flex-col text-gray-700 dark:text-gray-200 rounded-md dark:bg-gray-800 shadow-lg">
 		<div class="p-3 h-20 relative">
 			<div class="node__holder mb-2 flex align-content">
 				<div class="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 w-full">{{ node.name }} - {{ node.refIndex }}</div>

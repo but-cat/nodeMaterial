@@ -1,7 +1,7 @@
 <template>
 	<node-container @dragover="(event: any) => event.preventDefault()" @drop="dragover"
 		class="w-full h-full overflow-hidden">
-		<node-canvas ref="nodeCanvas" class="material-node node-editor relative">
+		<node-canvas ref="nodeCanvas" class="material-node text-gray-300 dark:text-gray-800 node-editor relative">
 			<!-- <NodeBlock v-for="[uuid, item] in nodes" :node="item" /> -->
 
 			<template v-for="[uuid, node] in nodes">
@@ -139,20 +139,50 @@ async function dragover(event: DragEvent) {
 	// const eventNode = event.eventTarget;
 	const nodeUrl = event.dataTransfer!.getData('text/plain');
 
+
+	if(nodeUrl) {
+		const res = await $http.get(nodeUrl);
+		const nodeTemplates = new NodeTemplate(res as string);
+		console.log('nodeTemplates', res, nodeTemplates);
+
+		const node = new SingleNode(nodeTemplates);
+		node.x = event.offsetX;
+		node.y = event.offsetY;
+		console.log('node', node);
+
+
+		setNodes(node);
+		
+	} else {
+		const files = event.dataTransfer!.files;
+		const file = files[0];
+		const fileName = file.name;
+
+		const fileLoader = (file: File) => new Promise((resolve, reject) => {
+			const reader = new FileReader();
+			reader.onload = (event) => resolve(event.target!.result);
+			reader.onerror = reject;
+			reader.readAsText(file);
+		});
+
+		const res = await fileLoader(file);
+		const nodeTemplates = new NodeTemplate(res as string);
+		console.log('nodeTemplates', res, nodeTemplates);
+
+		const node = new SingleNode(nodeTemplates);
+		node.x = event.offsetX;
+		node.y = event.offsetY;
+		console.log('node', fileName, node);
+
+		setNodes(node);
+	}
+
 	console.log('dragover', event, nodeUrl);
 	// const { offsetX, offsetY } = event;
 
-	const res = await $http.get(nodeUrl);
-	const nodeTemplates = new NodeTemplate(res as string);
-	console.log('nodeTemplates', res, nodeTemplates);
-
-	const node = new SingleNode(nodeTemplates);
-	node.x = event.offsetX;
-	node.y = event.offsetY;
-	console.log('node', node);
+	
 
 
-	setNodes(node);
 }
 
 function delNode(uuid: string) {
@@ -291,9 +321,9 @@ defineExpose({ compile, save, load });
 	background-size: 30px 30px;
 	/* background-color: #fbfbfb; */
 
-	@grid_line: #171f2f32;
+	@grid_line: currentColor;
 
-	yellow: rgb(255, 251, 0);
+	// yellow: rgb(255, 251, 0);
 
 	background: linear-gradient(to right, transparent 48%, @grid_line 49%, @grid_line 50%, transparent 51%), linear-gradient(to bottom, transparent 48%, @grid_line 49%, @grid_line 50%, transparent 51%);
 	background-size: 50px 50px;
@@ -301,4 +331,5 @@ defineExpose({ compile, save, load });
 
 node-container[active] * {
 	pointer-events: none;
-}</style>
+}
+</style>

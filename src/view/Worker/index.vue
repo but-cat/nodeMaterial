@@ -4,16 +4,17 @@
 		<div class="flex-grow overflow-hidden h-full flex flex-col">
 			<div class="h-12 lg:flex w-full border-b border-gray-200 dark:border-gray-800 hidden px-10">
 				<div class="flex h-full text-gray-600 dark:text-gray-400">
-					<a @click="nodeType = ''" :class="!nodeType ? ['border-blue-500', 'text-blue-500', 'dark:text-white', 'dark:border-white'] : ['border-transparent']" class="cursor-pointer h-full border-b-2  inline-flex mr-8 items-center">全部</a>
-					<a v-for="item in nodeTypeList" @click="nodeType = item" :class="nodeType == item ? ['border-blue-500', 'text-blue-500', 'dark:text-white', 'dark:border-white'] : ['border-transparent']" class="cursor-pointer h-full border-b-2  inline-flex mr-8 items-center">{{ item }}</a>
+					<a @click="nodeType = ''" :class="!nodeType ? ['border-primary-500', 'text-primary-500', 'dark:text-white', 'dark:border-white'] : ['border-transparent']" class="cursor-pointer h-full border-b-2  inline-flex mr-8 items-center">全部</a>
+					<a v-for="item in nodeTypeList" @click="nodeType = item" :class="nodeType == item ? ['border-primary-500', 'text-primary-500', 'dark:text-white', 'dark:border-white'] : ['border-transparent']" class="cursor-pointer h-full border-b-2  inline-flex mr-8 items-center">{{ item }}</a>
 					
 				</div>
 				<div class="ml-auto flex items-center space-x-7">
-					<button @click="save" class="h-8 px-3 rounded-md shadow text-white bg-blue-500">保存</button>
-					<button @click="read" class="h-8 px-3 rounded-md shadow text-white bg-blue-500">读取</button>
-					<button @click="compile" class="h-8 px-3 rounded-md shadow text-white bg-blue-500">编译</button>
-					<!-- <button @click="sidebar = 'codeView'" class="h-8 px-3 rounded-md shadow text-white bg-blue-500">代码</button>
-					<button @click="sidebar = 'material'" class="h-8 px-3 rounded-md shadow text-white bg-blue-500">材质预览</button> -->
+					<button @click="save" class="h-8 px-3 rounded-md shadow text-white bg-primary-500">保存</button>
+					<button @click="read" class="h-8 px-3 rounded-md shadow text-white bg-primary-500">读取</button>
+					<button @click="compile" class="h-8 px-3 rounded-md shadow text-white bg-primary-500">编译</button>
+					<button disabled class="h-8 px-3 rounded-md shadow text-white bg-primary-500 disabled:bg-primary-400 disabled:dark:bg-primary-600">导出</button>
+					<!-- <button @click="sidebar = 'codeView'" class="h-8 px-3 rounded-md shadow text-white bg-primary-500">代码</button>
+					<button @click="sidebar = 'material'" class="h-8 px-3 rounded-md shadow text-white bg-primary-500">材质预览</button> -->
 				</div>
 			</div>
 			<div class="flex-grow flex overflow-x-auto flex-1">
