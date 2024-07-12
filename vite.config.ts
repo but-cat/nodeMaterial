@@ -12,7 +12,7 @@ console.log("development", process.env.NODE_ENV === 'development');
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: "/",
+	base: "./",
 	publicDir: "public",// 作为静态资源服务的文件夹。该目录中的文件在开发期间在 / 处提供，并在构建期间复制到 outDir 的根目录，并且始终按原样提供或复制而无需进行转换。该值可以是文件系统的绝对路径，也可以是相对于项目的根目录的相对路径。
 	plugins: [vue({
 		template: {

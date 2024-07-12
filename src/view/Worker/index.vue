@@ -131,6 +131,18 @@ function read() {
 	});
 	input.click();
 }
+
+
+
+
+onMounted(async () => {
+	const res = await fetch('./node_data.json')
+	const data = await res.text();
+	NodeView.value!.load(data);
+	setTimeout(() => {
+		compile();
+	}, 100);
+})
 </script>
 
 
